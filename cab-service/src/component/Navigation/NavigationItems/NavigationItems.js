@@ -5,7 +5,7 @@ import NavigationItem from '../NavigationItems/NavigationItem/NavigationItem'
 const navigateItems = () => (
 
     <Nav>
-        <NavigationItem link="/" active> Login </NavigationItem>
+        <NavigationItem link="/"  color="light"> Login </NavigationItem>
         <NavigationItem link="/" active>  ...</NavigationItem>
 
     </Nav>
