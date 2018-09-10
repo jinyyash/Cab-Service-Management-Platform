@@ -1,9 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
-import { Container, Row, Col } from 'reactstrap';
-
-
-
+import { Container, Row, Col, Input, Button,Card,CardBody } from 'mdbreact';
 
 class SignUp extends Component {
     State = {
@@ -13,29 +9,35 @@ class SignUp extends Component {
     }
     render() {
         return (
-            <div  style="display:none; margin-top:50px">
-                <Container>
-                    <Row>
-                        <Col sm="12" md={{ size: 5, offset: 2 }}> <h4>Sign Up To Ride</h4></Col>
-                    </Row>
-
-
-                    <Form>
-                        <Row >
-                            <Col sm="12" md={{ size: 8, offset: 2 }}><Input type="name" name="name" id="name" placeholder="type your name" /></Col>
-                        </Row>
-
-                        <Input type="email" name="email" id="exampleEmail" placeholder="type your email" />
-                        <Input type="username" name="username" id="username" placeholder="type your user name" />
-                        <Input type="password" name="password" id="password" placeholder="Enter your password" />
-                        <Input type="password" name="re-enter" id="re-enter" placeholder="Enter your password" />
-                        <Button>SignUp</Button>
-                    </Form>
-                </Container>
-            </div>
-
+            <Container style={{margintop:'50px'}} >
+                <Row>
+                    <Col md="6">
+                        <Card>
+                            <CardBody>
+                                <form>
+                                    <p className="h4 text-center py-4">Sign up</p>
+                                    <div className="grey-text">
+                                        <Input label="Your name" icon="user" group type="text" validate error="wrong" success="right" />
+                                        <Input label="Your email" icon="envelope" group type="email" validate error="wrong" success="right" />
+                                        <Input label="Confirm your email" icon="exclamation-triangle" group type="text" validate error="wrong" success="right" />
+                                        <Input label="Your password" icon="lock" group type="password" validate />
+                                    </div>
+                                    <div className="text-center py-4 mt-3">
+                                        <Button color="red" type="submit">Register</Button>
+                                    </div>
+                                </form>
+                            </CardBody>
+                        </Card>
+                    </Col>
+                </Row>
+            </Container>
         );
     }
-
 }
+
+
+
+
+
+
 export default SignUp;

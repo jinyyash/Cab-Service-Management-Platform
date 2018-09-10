@@ -1,9 +1,16 @@
 import React from 'react';
-import { NavLink, NavItem } from 'reactstrap';
+import { NavItem,NavLink } from 'mdbreact';
+
+
 const navigateItem = (props) => (
-    <NavItem>
-        <NavLink href={props.link}> {props.children}</NavLink>
+    /*   <li className='nav-item ' style={{ marginRight: '20px' }}>
+           <a href={props.link}>
+   
+           </a>*/
+    <NavItem active>
+        <a className="nav-link" href={props.link} className="grey-text"> {props.children}</a>
     </NavItem>
+    // </li>
 
 );
 export default navigateItem;

@@ -1,13 +1,12 @@
 import React from 'react';
-import { Nav } from 'reactstrap';
 import NavigationItem from '../NavigationItems/NavigationItem/NavigationItem'
+import { NavbarNav } from 'mdbreact';
 
+import 'bootstrap/dist/css/bootstrap.min.css'
 const navigateItems = () => (
-
-    <Nav>
-        <NavigationItem link="/"  color="light"> Login </NavigationItem>
-        <NavigationItem link="/" active>  ...</NavigationItem>
-
-    </Nav>
+    <NavbarNav right>
+          <NavigationItem link="/"  > Contact </NavigationItem>
+          <NavigationItem link="/" active >  About</NavigationItem>   
+    </NavbarNav>
 );
 export default navigateItems;
