@@ -8,7 +8,7 @@ const navigateItem = (props) => (
    
            </a>*/
     <NavItem active>
-        <a className="nav-link" href={props.link} className="grey-text"> {props.children}</a>
+        <a className="nav-link" href={props.link} className="grey-text" style={{paddingRight:'20px'}}> {props.children}</a>
     </NavItem>
     // </li>
 

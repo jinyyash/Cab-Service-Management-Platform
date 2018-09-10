@@ -22,12 +22,12 @@ class SignUp extends Component {
                                 <Card >
                                     <CardBody>
                                         <form>
-                                            <h5 className="h4 text-center py-4"color="red" >Sign Up to Ride</h5>
+                                            <h5 className="h4 text-center py-4" >Sign Up to Ride</h5>
                                            <Center><h4>Safe, reliable rides in minutes</h4></Center> 
                                             <div className="grey-text">
                                                 <Input label="Your name" icon="user" group type="text" validate error="wrong" success="right" />
                                                 <Input label="Your email" icon="envelope" group type="email" validate error="wrong" success="right" />
-                                                <Input label="Confirm your email" icon="exclamation-triangle" group type="text" validate error="wrong" success="right" />
+                                                <Input label="Your Phone Number" icon="exclamation-triangle" group type="text" validate error="wrong" success="right" />
                                                 <Input label="Your password" icon="lock" group type="password" validate />
                                             </div>
                                             <div className="text-center py-4 mt-3">
