@@ -5,10 +5,11 @@ import React from 'react';
 import Aux from '../../hoc/Aux';
 import ToolBar from '../../component/ToolBar/ToolBar'
 import SignUp from '../../containers/SignUp/SignUp';
+import Login from '../../containers/Login/Login';
 const layout = (props) => (
     <Aux>
         <ToolBar />
-        <SignUp/>
+        <Login/>
         <main>{props.children} </main>
     </Aux>
 );
