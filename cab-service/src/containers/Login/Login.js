@@ -6,19 +6,22 @@ import classes from './Login.css';
 class Login extends Component {
     state = {
         loginForm: {
-            name: {
+            email: {
                 elementType: 'input',
                 elementConfig: {
-                    type: 'text',
-                    placeholder: 'Your Name'
+                    type: 'email',
+                    placeholder: 'Your E-Mail'
 
                 },
+
                 value: '',
                 validation: {
-                    required: true
+                    required: true,
+                    isEmail: true
                 },
                 valid: false,
                 touched: false
+
             },
             password: {
                 elementType: 'input',
@@ -35,22 +38,7 @@ class Login extends Component {
                 touched: false
 
             },
-            email: {
-                elementType: 'input',
-                elementConfig: {
-                    type: 'email',
-                    placeholder: 'Your E-Mail'
 
-                },
-
-                value: '',
-                validation: {
-                    required: true
-                },
-                valid: false,
-                touched: false
-
-            },
 
         },
         formIsValid: false,
@@ -61,7 +49,7 @@ class Login extends Component {
         if (!rules) {
             return true;
         }
-        
+
         if (rules.required) {
             isValid = value.trim() !== '' && isValid;
         }
@@ -90,19 +78,20 @@ class Login extends Component {
         const updatedForm = {
             ...this.state.loginForm
         };
-        const updatedFormElement = { 
+        const updatedFormElement = {
             ...updatedForm[inputIdentifier]
         };
         updatedFormElement.value = event.target.value;
+        console.log(updatedFormElement);
         updatedFormElement.valid = this.checkValidity(updatedFormElement.value, updatedFormElement.validation);
         updatedFormElement.touched = true;
         updatedForm[inputIdentifier] = updatedFormElement;
-        
+
         let formIsValid = true;
         for (let inputIdentifier in updatedForm) {
             formIsValid = updatedForm[inputIdentifier].valid && formIsValid;
         }
-        this.setState({loginForm: updatedForm, formIsValid: formIsValid});
+        this.setState({ loginForm: updatedForm, formIsValid: formIsValid });
     }
     render() {
         const formElementsArray = [];
@@ -114,7 +103,7 @@ class Login extends Component {
         }
         let form = (
             <form class="text-center">
-              
+
                 {formElementsArray.map(formElement => (
                     <Input
                         key={formElement.id}
@@ -127,10 +116,17 @@ class Login extends Component {
                         changed={(event) => this.inputChangedHandler(event, formElement.id)}
                     />
                 ))}
-
                 <div className="text-center my-4">
-                    <Button color="red" type="submit">Register</Button>
+                    <button class="btn btn-danger btn-block my-4" type="submit">Sign in</button>
                 </div>
+                <div className="text-center my-4">
+                    <h6>Not a member?
+        <a href="">Register</a>
+                    </h6>
+
+                </div>
+
+
             </form>
 
         );
@@ -138,22 +134,23 @@ class Login extends Component {
 
 
         return (
-            <div style={{ padding: '50px 30px 30px 75px', marginLeft: ' 300px' }}>
+            <div style={{ padding: '80px 30px 30px 75px', marginLeft: ' 400px' }}>
                 <Container   >
                     <Row>
                         <Col md="5">
                             <Card >
                                 <CardBody>
-                                <h5 className="h4 text-center py-4" >Sign In to Ride</h5>
-                                    <div>
-                                        {form}
-                                    </div>
+                                    <h5 className="h4 text-center py-4" >Sign In To Ride</h5>
+
+                                    {form}
+
+
                                 </CardBody>
                             </Card>
                         </Col>
                     </Row>
                 </Container>
-            </div>
+            </div >
         );
     }
 }
