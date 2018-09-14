@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import { Container, Row, Col, Button, Card, CardBody } from 'mdbreact';
 import Input from '../../component/UI/Input/Input'
+import { Link, withRouter } from 'react-router-dom';
+import axios from 'axios';
+
+
+
 
 class SignUp extends Component {
     state = {
@@ -12,15 +17,13 @@ class SignUp extends Component {
                     placeholder: 'Your Name'
 
                 },
-
                 value: '',
                 validation: {
                     required: true
-                    
+
                 },
                 valid: false,
                 touched: false
-
             },
             phone: {
                 elementType: 'input',
@@ -29,7 +32,6 @@ class SignUp extends Component {
                     placeholder: 'Your Phone Number'
 
                 },
-
                 value: '',
                 validation: {
                     required: true,
@@ -39,7 +41,6 @@ class SignUp extends Component {
                 },
                 valid: false,
                 touched: false
-
             },
             email: {
                 elementType: 'input',
@@ -93,8 +94,52 @@ class SignUp extends Component {
 
         },
         formIsValid: false,
-        loading: false
+        loading: false,
+        item: []
     }
+    constructor(props) {
+        super(props);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    async handleSubmit(event) {
+        event.preventDefault();
+        this.setState({ loading: true });
+        const formData = {};
+        for (let formElementIdentifier in this.state.signupForm) {
+            formData[formElementIdentifier] = this.state.signupForm[formElementIdentifier].value;
+        }
+
+        /* await fetch('http://localhost:8080/api/customer', {
+           method:'POST',
+           headers: {
+             'Accept': 'application/json',
+             'Content-Type': 'application/json'
+           },
+           body: JSON.stringify(formData),
+         });*/
+        const data = {
+            custId: '1',
+            custName: formData.name,
+            custPhone: formData.phone,
+            custEmail: formData.email,
+            custPassword: formData.password
+
+
+        }
+         axios.post('http://localhost:8085/api/customer', data)
+            .then(response => {
+                this.setState({ loading: false });
+                this.props.history.push( '/login' );
+              
+            })
+            .catch(error => {
+                this.setState({ loading: false });
+                console.log('error');
+            });
+
+    }
+
     checkValidity(value, rules) {
         let isValid = true;
         if (!rules) {
@@ -153,7 +198,7 @@ class SignUp extends Component {
             })
         }
         let form = (
-            <form class="text-center">
+            <form class="text-center" onSubmit={this.handleSubmit}>
 
                 {formElementsArray.map(formElement => (
                     <Input
@@ -168,11 +213,11 @@ class SignUp extends Component {
                     />
                 ))}
                 <div className="text-center my-4">
-                    <button class="btn btn-danger btn-block my-4" type="submit">Sign Up</button>
+                    <button class="btn btn-danger btn-block my-4" type="submit" disabled={!this.state.formIsValid}>Sign Up</button>
                 </div>
                 <div className="text-center my-4">
                     <h6>Already Member?
-        <a href="">SignIn</a>
+        <a href="/login">SignIn</a>
                     </h6>
 
                 </div>
@@ -211,4 +256,4 @@ class SignUp extends Component {
 
 
 
-export default SignUp;
+export default withRouter(SignUp);

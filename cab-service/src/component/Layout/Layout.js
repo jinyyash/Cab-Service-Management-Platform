@@ -9,7 +9,7 @@ import Login from '../../containers/Login/Login';
 const layout = (props) => (
     <Aux>
         <ToolBar />
-        <SignUp/>
+        <a href='/signup'>click</a>
         <main>{props.children} </main>
     </Aux>
 );
