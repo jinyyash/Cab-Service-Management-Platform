@@ -12,7 +12,7 @@ class App extends Component {
   }
   render() {
     return (
-      <div >
+      <div className="grey-text">
         <Layout>
         <Switch>
             <Route path="/login" component={Login} />
