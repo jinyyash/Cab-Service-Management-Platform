@@ -4,7 +4,7 @@ import {  Navbar, NavbarBrand,Collapse} from 'mdbreact';
 
 
 const toolBar = (props) => (
-    <Navbar color="white" expand="md" dark >
+    <Navbar color="white" expand="md"   fixed="right">
         <Collapse navbar>
             <NavbarBrand href="#" className="grey-text">
                 LOGO
