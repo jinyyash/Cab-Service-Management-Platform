@@ -5,10 +5,12 @@
  */
 package com.ucsc.cabservice.model;
 
+import java.util.HashSet;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import org.hibernate.mapping.Set;
 
 /**
  *
@@ -24,6 +26,7 @@ public class Customer {
     private int custPhone;
     private String custEmail;
     private String custPassword;
+   
     
 
     public Customer() {
