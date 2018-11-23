@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.ucsc.cabservice.model;
+package com.ucsc.cabServiceManagementSystem.model;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -21,7 +21,7 @@ import javax.persistence.OneToMany;
 @Entity
 public class Vehicle {
     private long vehicle_id;
-  //  private Set<Package> Package=new HashSet<>();
+    private Set<Package> Package=new HashSet<Package>();
     /**
      * @return the vehicle_id
      */
@@ -41,7 +41,7 @@ public class Vehicle {
     /**
      * @return the Package
      */
-    /*@OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL)
     public Set<Package> getPackage() {
         return Package;
     }
@@ -49,8 +49,7 @@ public class Vehicle {
     /**
      * @param Package the Package to set
      */
-   /* public void setPackage(Set<Package> Package) {
+    public void setPackage(Set<Package> Package) {
         this.Package = Package;
-    }*/
-    
+    }
 }

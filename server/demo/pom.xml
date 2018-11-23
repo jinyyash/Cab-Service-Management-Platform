@@ -69,7 +69,13 @@
             <type>jar</type>
         </dependency>
        
-        
+        <!-- https://mvnrepository.com/artifact/javax.mail/mail -->
+        <dependency>
+            <groupId>javax.mail</groupId>
+            <artifactId>mail</artifactId>
+            <version>1.4</version>
+            <!--<type>jar</type>-->
+        </dependency>
 
     </dependencies>
 

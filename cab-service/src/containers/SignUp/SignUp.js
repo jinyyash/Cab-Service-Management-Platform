@@ -3,8 +3,7 @@ import { Container, Row, Col, Button, Card, CardBody } from 'mdbreact';
 import Input from '../../component/UI/Input/Input'
 import { Link, withRouter } from 'react-router-dom';
 import axios from 'axios';
-
-
+import Header from '../../component/ToolBar/Header';
 
 
 class SignUp extends Component {
@@ -230,6 +229,8 @@ class SignUp extends Component {
 
 
         return (
+            <div>
+            <Header/>
             <div style={{ padding: '80px 30px 30px 75px', marginLeft: ' 400px' }}>
                 <Container   >
                     <Row>
@@ -240,13 +241,13 @@ class SignUp extends Component {
 
                                     {form}
 
-
                                 </CardBody>
                             </Card>
                         </Col>
                     </Row>
                 </Container>
             </div >
+            </div>
         );
     }
 }

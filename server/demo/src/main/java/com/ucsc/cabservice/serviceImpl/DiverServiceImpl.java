@@ -18,6 +18,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class DiverServiceImpl implements DriverService {
+
     @Autowired
     private DriverRepository driverRepository;
 
@@ -45,5 +46,26 @@ public class DiverServiceImpl implements DriverService {
     public String deleteDriver(Driver driver) {
         driverRepository.delete(driver);
         return "true";
+    }
+
+    @Override
+    public List<Driver> getDriverById(long id) {
+        List<Driver> d = driverRepository.getDriverById(id);
+        System.out.println("driver list : " + d.size());
+        return d;
+    }
+
+    @Override
+    public List<Driver> getDriverByName(String name) {
+        List<Driver> d = driverRepository.getDriverByName(name);
+        System.out.println("driver list : " + d.size());
+        return d;
+    }
+
+    @Override
+    public List<Driver> getDriverByNic(String nic) {
+        List<Driver> d = driverRepository.getDriverByNIC(nic);
+        System.out.println("driver list : " + d.size());
+        return d;
     }
 }

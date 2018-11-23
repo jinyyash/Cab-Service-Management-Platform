@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { Container, Row, Col, Button, Card, CardBody } from 'mdbreact';
 import Input from '../../component/UI/Input/Input'
-import Center from 'react-center';
-import classes from './Login.css';
+import Header from '../../component/ToolBar/Header';
 class Login extends Component {
     state = {
         loginForm: {
@@ -117,7 +116,7 @@ class Login extends Component {
                     />
                 ))}
                 <div className="text-center my-4">
-                    <button class="btn btn-danger btn-block my-4" type="submit">Sign in</button>
+                    <button class="btn btn-danger btn-block my-4" type="/home">Sign in</button>
                 </div>
                 <div className="text-center my-4">
                     <h6>Not a member?
@@ -134,23 +133,23 @@ class Login extends Component {
 
 
         return (
-            <div style={{ padding: '80px 30px 30px 75px', marginLeft: ' 400px' }}>
-                <Container   >
-                    <Row>
-                        <Col md="5">
-                            <Card >
-                                <CardBody>
-                                    <h5 className="h4 text-center py-4" >Sign In To Ride</h5>
-
-                                    {form}
-
-
-                                </CardBody>
-                            </Card>
-                        </Col>
-                    </Row>
-                </Container>
-            </div >
+            <div>
+                <Header/>
+                <div style={{ padding: '80px 30px 30px 75px', marginLeft: ' 400px' }}>
+                    <Container   >
+                        <Row>
+                            <Col md="5">
+                                <Card >
+                                    <CardBody>
+                                        <h5 className="h4 text-center py-4" >Sign In To Ride</h5>
+                                        {form}
+                                    </CardBody>
+                                </Card>
+                            </Col>
+                        </Row>
+                    </Container>
+                </div >
+            </div>
         );
     }
 }

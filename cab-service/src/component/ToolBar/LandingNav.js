@@ -1,16 +1,17 @@
 import React from 'react';
-import NavigationItems from '../Navigation/NavigationItems/NavigationItems';
+import NavigateLanding from '../Navigation/NavigationItems/LandingHeader';
 import {  Navbar, NavbarBrand,Collapse} from 'mdbreact';
 import logo from '../../Images/logo.png'
 
 
-const toolBar = (props) => (
+const Bar = (props) => (
     <Navbar color="white" expand="md" dark >
         <Collapse navbar>
             <NavbarBrand href="#" className="grey-text">
-            <img src={logo} width="50" height="35"/>
+                
+                <img src={logo} width="50" height="35"/>
         </NavbarBrand>
-            <NavigationItems />
+            <NavigateLanding />
         </Collapse>
     </Navbar >
 
@@ -18,4 +19,4 @@ const toolBar = (props) => (
 );
 
 
-export default toolBar;
+export default Bar;
