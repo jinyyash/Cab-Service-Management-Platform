@@ -5,17 +5,21 @@
  */
 package com.ucsc.cabservice.model;
 
+import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  *
  * @author Jinadi
  */
 @Entity
-public class Maintance {
+@Table(name="maintaince")
+
+public class Maintance implements Serializable  {
     private long maintain_id;
 
     /**

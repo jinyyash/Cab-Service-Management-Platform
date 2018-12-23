@@ -5,25 +5,33 @@
  */
 package com.ucsc.cabservice.model;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.io.Serializable;
+import java.util.List;
+import javax.persistence.Access;
+import javax.persistence.AccessType;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 /**
  *
  * @author Jinadi
  */
 @Entity
-public class Package {
+@Table(name="package")
+public class Package implements Serializable {
 
     private long package_id;
     private String package_name;
-    private Set<Customer> customers = new HashSet<Customer>();
+    /*@Access(AccessType.FIELD)
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "package_id")*/
+    private List<Vehicle> vehiclelist;
 
     /**
      * @return the package_id
@@ -56,18 +64,17 @@ public class Package {
     }
 
     /**
-     * @return the customers
+     * @return the vehiclelist
      */
-    @ManyToMany(cascade = CascadeType.ALL)
-
-    public Set<Customer> getCustomers() {
-        return customers;
+    @OneToMany(cascade = CascadeType.ALL)
+    public List<Vehicle> getVehiclelist() {
+        return vehiclelist;
     }
 
     /**
-     * @param customers the customers to set
+     * @param vehiclelist the vehiclelist to set
      */
-    public void setCustomers(Set<Customer> customers) {
-        this.customers = customers;
+    public void setVehiclelist(List<Vehicle> vehiclelist) {
+        this.vehiclelist = vehiclelist;
     }
 }

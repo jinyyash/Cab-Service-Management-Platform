@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.ucsc.cabservice.model;
+package com.ucsc.cabservice.controller;
 
+import com.ucsc.cabservice.model.Vehicle;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
@@ -14,34 +15,31 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
-import javax.persistence.Table;
 
 /**
  *
  * @author Jinadi
  */
 @Entity
-@Table(name="owner")
+public class DamegesController implements Serializable  {
 
-public class Owner implements Serializable  {
-
-    private long owner_id;
+    private long damage_id;
     private Set<Vehicle> Vehicle = new HashSet<Vehicle>();
 
     /**
-     * @return the owner_id
+     * @return the damage_id
      */
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    public long getOwner_id() {
-        return owner_id;
+    public long getDamage_id() {
+        return damage_id;
     }
 
     /**
-     * @param owner_id the owner_id to set
+     * @param damage_id the damage_id to set
      */
-    public void setOwner_id(long owner_id) {
-        this.owner_id = owner_id;
+    public void setDamage_id(long damage_id) {
+        this.damage_id = damage_id;
     }
 
     /**
@@ -59,4 +57,5 @@ public class Owner implements Serializable  {
     public void setVehicle(Set<Vehicle> Vehicle) {
         this.Vehicle = Vehicle;
     }
+
 }

@@ -5,30 +5,44 @@
  */
 package com.ucsc.cabservice.model;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
-import org.hibernate.mapping.Set;
+import javax.persistence.Table;
 
 /**
  *
  * @author Jinadi
  */
 @Entity
-public class Ride {
+@Table(name="ride")
+
+public class Ride implements Serializable {
 
     private long ride_id;
+   
     private Payment payment;
     private java.util.Set<Vehicle> vehiv = new HashSet<Vehicle>();
+    private String date;
+    private String state;
 
     public Ride() {
     }
 
+    public Ride(long ride_id, Payment payment, String date, String state) {
+        this.ride_id = ride_id;
+        this.payment = payment;
+        this.date = date;
+        this.state = state;
+    }
+ 
     /**
      * @return the ride_id
      */
@@ -48,6 +62,7 @@ public class Ride {
     /**
      * @return the payment
      */
+    @OneToOne(cascade = CascadeType.ALL)
     public Payment getPayment() {
         return payment;
     }
@@ -72,6 +87,35 @@ public class Ride {
      */
     public void setVehiv(java.util.Set<Vehicle> vehiv) {
         this.vehiv = vehiv;
+    }
+
+    
+    /**
+     * @return the date
+     */
+    public String getDate() {
+        return date;
+    }
+
+    /**
+     * @param date the date to set
+     */
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    /**
+     * @return the state
+     */
+    public String getState() {
+        return state;
+    }
+
+    /**
+     * @param state the state to set
+     */
+    public void setState(String state) {
+        this.state = state;
     }
 
 }

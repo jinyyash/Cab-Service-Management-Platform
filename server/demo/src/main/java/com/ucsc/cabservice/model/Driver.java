@@ -6,19 +6,27 @@
 package com.ucsc.cabservice.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 
 /**
  *
  * @author Jinadi
  */
 @Entity
+@Table(name = "driver")
+
 public class Driver implements Serializable {
 
-    
     private long id;
     private String name;
     private String nic;
@@ -26,6 +34,7 @@ public class Driver implements Serializable {
     private String licence;
     private int phone;
     private String email;
+   
 
     public Driver() {
     }
@@ -130,10 +139,5 @@ public class Driver implements Serializable {
         this.email = email;
     }
 
-   
     
-
-    
-
-   
 }

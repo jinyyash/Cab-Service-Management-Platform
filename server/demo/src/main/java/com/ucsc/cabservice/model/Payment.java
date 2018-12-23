@@ -5,19 +5,23 @@
  */
 package com.ucsc.cabservice.model;
 
+import java.io.Serializable;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 /**
  *
  * @author Jinadi
  */
 @Entity
-public class Payment {
+@Table(name="payment")
+
+public class Payment implements Serializable  {
 
     private long payment_id;
     private Ride ride;
