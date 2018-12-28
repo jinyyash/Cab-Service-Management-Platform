@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 
 /**
  *
- * @author Pasan Mudalige
+ * @author Jinadi
  */
 @Service
 public class CustomerServiceImpl implements CustomerService{
@@ -46,6 +46,11 @@ public class CustomerServiceImpl implements CustomerService{
     public String deleteCustomer(Customer customer) {
         customerRepository.delete(customer);
         return "true";
+    }
+
+    @Override
+    public List<Customer> findCustomerByMobile(String mobile) {
+        return customerRepository.findCustomerByMobile(mobile);
     }
     
 }

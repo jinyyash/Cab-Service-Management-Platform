@@ -13,11 +13,17 @@ import org.springframework.stereotype.Service;
  *
  * @author Pasan Mudalige
  */
-
 public interface CustomerService {
+
     public Customer addCustomer(Customer customer);
+
     public Customer updateCustomer(Customer customer);
+
     public String deleteCustomer(Customer customer);
+
     public List<Customer> getAllCustomers();
+
     public Customer getCustomer(Long id);
+    
+    List<Customer> findCustomerByMobile(String mobile);
 }

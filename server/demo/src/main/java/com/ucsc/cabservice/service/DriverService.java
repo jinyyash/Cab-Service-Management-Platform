@@ -13,9 +13,14 @@ import java.util.List;
  * @author Jinadi
  */
 public interface DriverService {
+
     public Driver addDriver(Driver driver);
+
     public Driver updateDriver(Driver driver);
+
     public String deleteDriver(Driver driver);
+
     public List<Driver> getAllDrivers();
+
     public Driver getDriver(Long id);
 }

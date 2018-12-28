@@ -4,6 +4,7 @@
 import com.ucsc.cabservice.model.Customer;
 import com.ucsc.cabservice.service.CustomerService;
 import java.util.List;
+import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
@@ -34,6 +35,7 @@ public class HomeController {
     @CrossOrigin(origins = "*", maxAge = 3600)
     @RequestMapping(value = "/customer", method = RequestMethod.POST,produces = {"application/json"})
     Customer addCustomer(@RequestBody Customer customer) {
+        System.out.println("controller calling");
         return customerService.addCustomer(customer);
     }
 
@@ -59,5 +61,14 @@ public class HomeController {
     @RequestMapping(value = "/customer/{id}", method = RequestMethod.GET, produces = {"application/json"})
     Customer getCustomer(@PathVariable("id") String id) {
        return customerService.getCustomer(Long.parseLong(id));
+    }
+    
+    @CrossOrigin(origins = "*", maxAge = 3600)
+    @RequestMapping(value = "/customer/mobile", method = RequestMethod.POST, produces = {"application/json"})
+    List<Customer> getAllCustomersByMobile(HttpServletRequest req) throws Exception{
+        System.out.println("controller callingggggggggggggg......");
+        String mobile =req.getParameter("mobile").toString();
+        System.out.println(mobile);
+        return customerService.findCustomerByMobile(mobile);
     }
 }

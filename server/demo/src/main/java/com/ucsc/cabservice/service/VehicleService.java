@@ -13,9 +13,14 @@ import java.util.List;
  * @author Jinadi
  */
 public interface VehicleService {
-      public Vehicle addVehicle(Vehicle vehicle);
+
+    public Vehicle addVehicle(Vehicle vehicle);
+
     public Vehicle updateVehicle(Vehicle vehicle);
+
     public String deleteVehicle(Vehicle vehicle);
+
     public List<Vehicle> getAllVehicles();
+
     public Vehicle getVehicle(Long id);
 }

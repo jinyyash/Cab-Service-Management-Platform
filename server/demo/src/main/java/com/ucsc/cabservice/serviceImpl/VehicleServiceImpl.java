@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 
 /**
  *
- * @author Pasan Mudalige
+ * @author Jinadi
  */
 @Service
 public class VehicleServiceImpl implements VehicleService{

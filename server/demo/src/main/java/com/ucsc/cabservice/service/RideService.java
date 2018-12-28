@@ -13,9 +13,14 @@ import java.util.List;
  * @author Jinadi
  */
 public interface RideService {
-      public Ride addRide(Ride customer);
+
+    public Ride addRide(Ride customer);
+
     public Ride updateRide(Ride customer);
+
     public String deleteRide(Ride customer);
+
     public List<Ride> getAllRides();
+
     public Ride getRide(Long id);
 }

@@ -36,7 +36,7 @@ public class Customer implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long custId;
     private String custName;
-    private int custPhone;
+    private String custPhone;
     private String custEmail;
     private String custPassword;
    /* @Access(AccessType.PROPERTY)
@@ -55,7 +55,7 @@ public class Customer implements Serializable {
     public Customer() {
     }
 
-    public Customer(Long custId, String custName, int custPhone, String custEmail, String custPassword) {
+    public Customer(Long custId, String custName, String custPhone, String custEmail, String custPassword) {
         this.custId = custId;
         this.custName = custName;
         this.custPhone = custPhone;
@@ -95,14 +95,14 @@ public class Customer implements Serializable {
     /**
      * @return the custPhone
      */
-    public int getCustPhone() {
+    public String getCustPhone() {
         return custPhone;
     }
 
     /**
      * @param custPhone the custPhone to set
      */
-    public void setCustPhone(int custPhone) {
+    public void setCustPhone(String custPhone) {
         this.custPhone = custPhone;
     }
 
